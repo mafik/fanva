@@ -1,0 +1,38 @@
+# Lojban translator
+
+Fanva is a lojban word meaning "x_1 translates x_2 to language x_3 from language x_4, with translation result x_5". fanva.py is a python script that reads lojban sentence and prints out its translated form.
+
+It takes one parameter: --lang LANG. The only lang working at the moment is polish.
+
+## Installation
+
+1. Install zirsam (https://github.com/purpleposeidon/zirsam)
+2. Install additional libraries required by your language: &darr;
+
+## Poliqarp configuration
+
+1. Install poliqarpd (http://sourceforge.net/projects/poliqarp/)
+2. Download and extract corpora (http://korpus.pl/)
+3. Create file ~/.poliqarp/poliqarpd.conf with configuration similar to:
+
+ logging             = on
+ logfile             = /home/marek/poliqarpd.log
+ match-buffer-size   = 1000
+ max-session-idle    = 1200
+ corpus              = default:/home/marek/corpus/all
+
+4. Start poliqarp daemon with command: "poliqarpd -d"
+
+## Use
+
+$ ./fanva.py -l pl <<< "mi klama do"
+> Idę do ciebie
+$ _
+
+## Authors & Copyright
+
+Various files have various authors and different licences. Check them individually.
+
+Poliqarp is a large corpora concordancer that is developed by people from Polish Academy of Sciences.
+
+Zirsam is a flexible lojban parser developed by purpleposeidon, here, on GitHub.
